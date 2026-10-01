@@ -140,6 +140,22 @@
     .band .btn{margin-top:26px}
     .band small{display:block;margin-top:14px;color:#9DB2B5;font-size:.88rem}
 
+    /* explainer video */
+    .vid-sec{padding-block:56px;scroll-margin-top:72px;text-align:center}
+    .vid-sec .sub{margin-inline:auto}
+    .vid{position:relative;margin:28px auto 0;max-width:900px;border-radius:var(--r);overflow:hidden;background:var(--ink);border:1px solid var(--line);box-shadow:0 24px 48px -24px rgba(21,36,46,.35);aspect-ratio:16/9}
+    .vid video{display:block;width:100%;height:100%;object-fit:cover}
+    .vid-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;display:grid;place-items:center;width:84px;height:84px;padding:0;border:0;border-radius:50%;background:var(--coral);color:#fff;cursor:pointer;box-shadow:0 10px 30px -8px rgba(21,36,46,.55),0 0 0 8px rgba(255,255,255,.22);transition:background .15s,transform .15s,opacity .2s}
+    .vid-play svg{width:34px;height:34px;margin-inline-start:4px;fill:#fff}
+    .vid-play:hover{background:var(--coral-t);transform:translate(-50%,-50%) scale(1.06)}
+    .vid-play:focus-visible{outline:3px solid #fff;outline-offset:4px}
+    .vid.is-playing .vid-play{opacity:0;visibility:hidden;pointer-events:none}
+    .vid-sec{overflow-x:clip}
+    @media (max-width:679px){.vid-play{width:68px;height:68px}.vid-play svg{width:28px;height:28px}}
+    .vid-cta{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:22px}
+    .vid-cta small{color:var(--mute);font-size:.88rem}
+    @media (min-width:960px){.vid-sec{padding-block:80px}}
+
     footer{padding-block:24px 32px;text-align:center;color:var(--mute);font-size:.8rem}
 
     @media (min-width:680px){
@@ -157,7 +173,7 @@
       .steps{grid-template-columns:repeat(4,1fr)}
       .sec{padding-block:80px}
     }
-    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}.vid-play,.vid-play:hover{transition:none}.vid-play:hover{transform:translate(-50%,-50%)}}
   </style>
 </head>
 <body>
@@ -179,6 +195,7 @@
     <div class="wrap top-in">
       <a class="brand" href="#top" aria-label="טייק ראשון – לראש העמוד"><svg aria-hidden="true"><use href="#logo"/></svg>טייק ראשון</a>
       <nav class="nav" aria-label="ניווט בעמוד">
+        <a href="#video">סרטון</a>
         <a href="#inside">מה בפנים</a>
         <a href="#fit">למי זה מתאים</a>
         <a href="#how">איך זה עובד</a>
@@ -197,7 +214,7 @@
           <p class="lead">12 פרומפטים בעברית שהופכים את <span class="ltr">ChatGPT</span>, <span class="ltr">Claude</span> או <span class="ltr">Gemini</span> לעורך תוכן שמכיר את העסק שלכם: זווית, פתיח, תסריט עם זמנים וכותרות מסך, וקריאה לפעולה אחת ברורה.</p>
           <div class="actions">
             <a class="btn" href="https://noamster78.gumroad.com/l/vzkydb" target="_blank" rel="noopener noreferrer">לקבל את הערכה · <span class="ltr">$15</span><span class="sr"> (נפתח בלשונית חדשה)</span></a>
-            <a class="btn btn-ghost" href="#inside">מה בפנים</a>
+            <a class="btn btn-ghost" href="#video">לצפייה בסרטון · <span class="ltr">1:37</span></a>
           </div>
           <ul class="facts">
             <li><b>12</b><span>פרומפטים מובנים</span></li>
@@ -220,6 +237,25 @@
             </div>
           </div>
         </figure>
+      </div>
+    </section>
+
+    <section class="sec vid-sec" id="video" aria-labelledby="video-title">
+      <div class="wrap">
+        <p class="eyebrow">בדקה וחצי</p>
+        <h2 id="video-title">למה התסריט שלכם יוצא גנרי – ואיך מתקנים</h2>
+        <p class="sub">ארבעת החלקים של תסריט שעובד, דוגמה לפני ואחרי, ואיך טייק ראשון עושה את זה בשבילכם.</p>
+        <figure class="vid">
+          <video controls playsinline preload="metadata" poster="video-poster.jpg" aria-label="סרטון הסבר: למה התסריט שלכם יוצא גנרי">
+            <source src="take-rishon-explainer.mp4" type="video/mp4" />
+            הדפדפן שלכם לא מציג וידאו. <a href="take-rishon-explainer.mp4">להורדת הסרטון</a>.
+          </video>
+          <button class="vid-play" type="button" aria-label="הפעלת הסרטון" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg></button>
+        </figure>
+        <div class="vid-cta">
+          <a class="btn" href="https://noamster78.gumroad.com/l/vzkydb" target="_blank" rel="noopener noreferrer">להורדת טייק ראשון · <span class="ltr">$15</span><span class="sr"> (נפתח בלשונית חדשה)</span></a>
+          <small>תשלום חד-פעמי · שימוש ללא הגבלה</small>
+        </div>
       </div>
     </section>
 
@@ -335,5 +371,19 @@
   </main>
 
   <footer>© 2026 נועם מאיר</footer>
+  <script>
+    (function(){
+      var fig=document.querySelector('#video .vid');
+      if(!fig)return;
+      var v=fig.querySelector('video'),b=fig.querySelector('.vid-play');
+      if(!v||!b)return;
+      b.hidden=false;
+      v.removeAttribute('controls');
+      function started(){fig.classList.add('is-playing');v.setAttribute('controls','')}
+      b.addEventListener('click',function(){v.setAttribute('controls','');var p=v.play();if(p&&p.catch)p.catch(function(){fig.classList.remove('is-playing')})});
+      v.addEventListener('play',started);
+      v.addEventListener('ended',function(){fig.classList.remove('is-playing');v.removeAttribute('controls')});
+    })();
+  </script>
 </body>
 </html>
